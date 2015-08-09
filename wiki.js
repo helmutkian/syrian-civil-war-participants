@@ -143,7 +143,7 @@ function parseInfobox(content) {
 }
 
 function parseLinks(infoboxProp) {
-    var regex = /\[\[([^\[\]]+)(?:\|([^\[\]]+))?\]\]/g;
+    var regex = /\[\[([^(File:)\[\]]+)(?:\|([^\[\]]+))?\]\]/gi;
     return (infoboxProp
 	    .match(regex)
           || [])

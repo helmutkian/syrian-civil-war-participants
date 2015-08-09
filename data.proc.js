@@ -1,4 +1,5 @@
-[ { name: 'Ahrar ash-Sham',
+var data =[
+{ name: 'Ahrar ash-Sham',
     allies: 
      [ 'al-Nusra Front',
        'Jaysh al-Islam',
@@ -913,4 +914,7 @@
     opponents: [],
     partof: [] },
   { name: 'Japan', allies: [], opponents: [], partof: [] },
-  { name: 'Italy', allies: [], opponents: [], partof: [] } ]
+  { name: 'Italy', allies: [], opponents: [], partof: [] }
+];
+
+module.exports = data;
