@@ -21,13 +21,7 @@ var link = svg.selectAll('.link')
 	.enter().append('line')
 	.attr('class', 'link')
 	.style('stroke', function (d) { return d.type === 1 ? 'green' : 'red'; })
-	.style('opacity', 0.6)
-	.on('mouseover', function () {
-	    d3.select(this).style('opacity', 1);
-	})
-	.on('mouseout', function () {
-	    d3.select(this).style('opacity', 0.6);
-	});
+	.style('opacity', 0.6);
 
 var node = svg.selectAll('.node')
 	.data(force.nodes())
@@ -74,10 +68,9 @@ function mouseover(d) {
     d3.select(this).select('text').transition()
 	.duration(750)
 	.attr('x', 13)
-	.style('stroke-width', '1px')
 	.style('opacity', 1)
 	.style('fill', 'black')
-	.style('font-weight', 'bold')
+	.style('font-weight', 'bolder')
 	.style('font-size', '14px');
     
     highlight(d);
@@ -87,14 +80,6 @@ function mouseout(d) {
     d3.select(this).select('circle').transition()
 	.duration(750)
 	.attr('r', 5);
-
-    d3.select(this).select('text').transition()
-	.duration(1250)
-	.attr('x', 0)
-	.style('opacity', 0)
-	.style('fill', 'blue')
-	.style('font-weight', 'normal')
-	.style('font', '10px');
     
     unhighlight(d);
 }
@@ -156,8 +141,11 @@ function unhighlight() {
 
     node.select('text')
 	.transition()
-	.duration(750)
+    	.duration(750)
 	.attr('x', 0)
+	.style('fill', 'blue')
+	.style('font-weight', 'normal')
+	.style('font-size', '10px')
 	.style('opacity', 0);
 
 }
@@ -169,5 +157,5 @@ function isAdjacent(a, b) {
 }
 
 function isIncident(node, edge) {
-    return node === edge.source || node === edge.target
+    return node === edge.source || node === edge.target;
 }
