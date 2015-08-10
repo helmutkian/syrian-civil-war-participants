@@ -14,7 +14,7 @@ var force = d3.layout.force()
 	.links(links)
 	.linkDistance(75)
 	.charge(-500)
-	.on('end', end);
+	.on('tick', tick);
 
 var link = svg.selectAll('.link')
 	.data(force.links())
@@ -49,7 +49,7 @@ node.append('text')
 
 force.start();
 
-function end() {
+function tick() {
     link
 	.attr("x1", function (d) { return d.source.x; })
 	.attr("y1", function (d) { return d.source.y; })
